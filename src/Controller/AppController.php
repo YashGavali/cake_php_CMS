@@ -48,7 +48,12 @@ class AppController extends Controller
 
         $session = $this->request->getSession();
         $isUserLoggedIn = $session->read('isUserLoggedIn');
-        // debug($isUserLoggedIn);
+        $parameters = $this->request->getAttribute('params');
+        $data = $this->request->getData();
+        // $controllerName = $this->request->getParam('controller');
+        // $actionName = $this->request->getParam('action');
+        // debug($parameters);
+        // debug($data);
         $this->set(compact('isUserLoggedIn'));
     }
 

@@ -28,8 +28,6 @@
         </tr>
     <?php endforeach; ?>
     <?= $this->Html->link('Add Article', ['action' => 'add']) ?>
-    <div>
-        <?php echo $cookieValue  ?>
 
-    </div>
+
 </table>
