@@ -29,5 +29,10 @@
     <?php endforeach; ?>
     <?= $this->Html->link('Add Article', ['action' => 'add']) ?>
 
-
+    <div>
+        Your favourite articles
+    </div>
+    <div>
+        <?php echo  isset($favArticleVal) ? $favArticleVal : "NO favourites"   ?>
+    </div>
 </table>

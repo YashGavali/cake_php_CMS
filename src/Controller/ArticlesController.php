@@ -12,39 +12,103 @@ class ArticlesController extends AppController
 
     public function index()
     {
-
+        $pagevisitsmade = $this->request->getCookie('pagevisits');
         //Creating a cookie
 
-        $cookie = (new Cookie('third'))
-            ->withValue('Third edited Post')
+        // $cookie = (new Cookie('four'))
+        //     ->withValue('Fourth edited Post')
+        //     ->withExpiry(new DateTime('+1 year'))
+        //     ->withPath('/')
+        //     ->withDomain('')
+        //     ->withSecure(false)
+        //     ->withHttpOnly(true);
+
+        //Create CookieCollection Object
+
+        // $cookies = new CookieCollection([$cookie]);
+        // $cookieCount = count($cookies);
+        //Attaching cookieCollection to response
+
+        // $this->response = $this->response->withCookieCollection($cookies);
+        // $dat = $this->response->getCookie('remember_me');
+
+        $this->loadComponent('Paginator');
+        $articles = $this->Paginator->paginate($this->Articles->find());
+        $favArticleVal  = $this->request->getCookie('favarticles');
+        $this->set(compact('articles', 'favArticleVal'));
+        //$session = $this->request->getSession()->read('Auth');
+
+
+        //Cookie delete 
+        // $this->response = $this->response->withExpiredCookie(new Cookie('four'));
+    }
+
+    public function view($slug = null)
+    {
+
+        $favArticles = $this->request->getCookie('favarticles');
+        $favoriteThreshold = 3;
+        $currentArticleSlug = $this->request->getParam("pass");
+        $cookieObj = $this->request->getCookie($currentArticleSlug[0]);
+
+        if ($cookieObj) {
+            $pageVisitValue = (int)$cookieObj + 1;
+            if ($pageVisitValue == $favoriteThreshold) {
+                if ($favArticles) {
+                    $favArticles = $favArticles . "|" . $currentArticleSlug[0];
+                    $favoriteArticlesCookie = (new Cookie('favarticles'))
+                        ->withValue($favArticles)
+                        ->withExpiry(new DateTime('+1 year'))
+                        ->withPath('/')
+                        ->withDomain('')
+                        ->withSecure(false)
+                        ->withHttpOnly(true);
+                    $this->response = $this->response->withCookie($favoriteArticlesCookie);
+                } else {
+                    $favArticles = $currentArticleSlug[0];
+                    $favoriteArticlesCookie = (new Cookie('favarticles'))
+                        ->withValue($favArticles)
+                        ->withExpiry(new DateTime('+1 year'))
+                        ->withPath('/')
+                        ->withDomain('')
+                        ->withSecure(false)
+                        ->withHttpOnly(true);
+                    $this->response = $this->response->withCookie($favoriteArticlesCookie);
+                }
+            } else {
+                $favArticles = $currentArticleSlug[0];
+            }
+
+            $pageVisitValue = (string)$pageVisitValue;
+        } else {
+            $pageVisitValue = '1';
+        };
+
+        $cookieObj = $this->request->getCookie('pagevisits');
+
+        $pagevisitsmade = $this->request->getCookie('pagevisits');
+        $cookie = (new Cookie($currentArticleSlug[0]))
+            ->withValue($pageVisitValue)
             ->withExpiry(new DateTime('+1 year'))
             ->withPath('/')
             ->withDomain('')
             ->withSecure(false)
             ->withHttpOnly(true);
 
-        //Create CookieCollection Object
 
-        $cookies = new CookieCollection([$cookie]);
-        $cookieCount = count($cookies);
-        //Attaching cookieCollection to response
 
-        $this->response = $this->response->withCookieCollection($cookies);
-        $dat = $this->response->getCookie('remember_me');
-
-        $this->loadComponent('Paginator');
-        $articles = $this->Paginator->paginate($this->Articles->find());
-        $this->set(compact('articles', 'dat'));
-        //$session = $this->request->getSession()->read('Auth');
-
-    }
-
-    public function view($slug = null)
-    {
         $article = $this->Articles->findBySlug($slug)->firstOrFail();
-        // $dat = $this->response->getCookie('changed');
+        $this->response = $this->response->withCookie($cookie);
+
+        // debug($cookieObj);
         $this->set(compact('article'));
-        debug($this->request->getCookie('third'));
+        // debug($this->request->getCookie('four'));
+
+        // if ($cookieObj) {
+        //     debug($cookieObj);
+        // } else {
+        //     debug('not exist');
+        // };
     }
 
     public function add()
