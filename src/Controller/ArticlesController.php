@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Http\Cookie\Cookie;
 use Cake\Http\Cookie\CookieCollection;
+use Cake\Mailer\Mailer;
+use Cake\Mailer\MailerAwareTrait;
 use DateTime;
 
 class ArticlesController extends AppController
 {
-
+    use MailerAwareTrait;
     public function index()
     {
         $pagevisitsmade = $this->request->getCookie('pagevisits');
@@ -157,5 +159,19 @@ class ArticlesController extends AppController
             $this->Flash->success(__('The {0} article has been deleted.', $article->title));
             return $this->redirect(['action' => 'index']);
         }
+    }
+
+    public function sendMail()
+    {
+
+        // $mailer = new Mailer();
+        $mailer = $this->getMailer('User');
+        // // $mailer
+        //     ->setTo('yg20298@gmail.com')
+        //     ->setSubject('About testing mail in Cakephp')
+        //     ->deliver('Test message');
+
+        //$mailer->push('welcome', ['yg20298@gmail.com', 'josegonzalez']);
+        $mailer->push('welcome', ['yg20298@gmail.com', 'test']);
     }
 }

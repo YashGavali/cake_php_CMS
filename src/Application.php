@@ -57,7 +57,15 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     {
         // Call parent to load bootstrap from files.
         parent::bootstrap();
+
+        // Add Plugins
+
+        $this->addPlugin('Cake/Queue');
+
         $this->addPlugin('Authentication');
+
+
+
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
         } else {
