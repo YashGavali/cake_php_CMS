@@ -1317,16 +1317,16 @@
         },
         {
             "name": "enqueue/redis",
-            "version": "0.10.9",
+            "version": "0.10.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-enqueue/redis.git",
-                "reference": "f07c93f36a7eb10a8f7ef02d4282781e448e5ab7"
+                "reference": "7c3156c812c5d039d0296e3a109d6d07cb62dc16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-enqueue/redis/zipball/f07c93f36a7eb10a8f7ef02d4282781e448e5ab7",
-                "reference": "f07c93f36a7eb10a8f7ef02d4282781e448e5ab7",
+                "url": "https://api.github.com/repos/php-enqueue/redis/zipball/7c3156c812c5d039d0296e3a109d6d07cb62dc16",
+                "reference": "7c3156c812c5d039d0296e3a109d6d07cb62dc16",
                 "shasum": ""
             },
             "require": {
@@ -1377,7 +1377,7 @@
                 "issues": "https://github.com/php-enqueue/enqueue-dev/issues",
                 "source": "https://github.com/php-enqueue/enqueue-dev"
             },
-            "time": "2021-02-17T21:24:05+00:00"
+            "time": "2023-02-26T03:18:02+00:00"
         },
         {
             "name": "enqueue/simple-client",
