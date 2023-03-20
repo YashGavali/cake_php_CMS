@@ -702,16 +702,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.5.3",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "88fa7e5189fd5ec6682477044264dc0ed4e3aa1e"
+                "reference": "57815c7bbcda3cd18871d253c1dd8cbe56f8526e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/88fa7e5189fd5ec6682477044264dc0ed4e3aa1e",
-                "reference": "88fa7e5189fd5ec6682477044264dc0ed4e3aa1e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/57815c7bbcda3cd18871d253c1dd8cbe56f8526e",
+                "reference": "57815c7bbcda3cd18871d253c1dd8cbe56f8526e",
                 "shasum": ""
             },
             "require": {
@@ -724,13 +724,14 @@
                 "psr/log": "^1|^2|^3"
             },
             "require-dev": {
-                "doctrine/coding-standard": "11.0.0",
+                "doctrine/coding-standard": "11.1.0",
+                "fig/log-test": "^1",
                 "jetbrains/phpstorm-stubs": "2022.3",
-                "phpstan/phpstan": "1.9.4",
-                "phpstan/phpstan-strict-rules": "^1.4",
-                "phpunit/phpunit": "9.5.27",
+                "phpstan/phpstan": "1.10.3",
+                "phpstan/phpstan-strict-rules": "^1.5",
+                "phpunit/phpunit": "9.6.4",
                 "psalm/plugin-phpunit": "0.18.4",
-                "squizlabs/php_codesniffer": "3.7.1",
+                "squizlabs/php_codesniffer": "3.7.2",
                 "symfony/cache": "^5.4|^6.0",
                 "symfony/console": "^4.4|^5.4|^6.0",
                 "vimeo/psalm": "4.30.0"
@@ -793,7 +794,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.5.3"
+                "source": "https://github.com/doctrine/dbal/tree/3.6.1"
             },
             "funding": [
                 {
@@ -809,7 +810,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-12T10:21:44+00:00"
+            "time": "2023-03-02T19:26:24+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -1049,16 +1050,16 @@
         },
         {
             "name": "enqueue/dbal",
-            "version": "0.10.17",
+            "version": "0.10.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-enqueue/dbal.git",
-                "reference": "d6c6d38290415d6383ab156a9cf580a99bd05522"
+                "reference": "39bc94d15f78771de1f8c3dd63e784fa10fc34be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-enqueue/dbal/zipball/d6c6d38290415d6383ab156a9cf580a99bd05522",
-                "reference": "d6c6d38290415d6383ab156a9cf580a99bd05522",
+                "url": "https://api.github.com/repos/php-enqueue/dbal/zipball/39bc94d15f78771de1f8c3dd63e784fa10fc34be",
+                "reference": "39bc94d15f78771de1f8c3dd63e784fa10fc34be",
                 "shasum": ""
             },
             "require": {
@@ -1107,7 +1108,7 @@
                 "issues": "https://github.com/php-enqueue/enqueue-dev/issues",
                 "source": "https://github.com/php-enqueue/enqueue-dev"
             },
-            "time": "2022-01-10T17:47:44+00:00"
+            "time": "2023-02-26T03:18:02+00:00"
         },
         {
             "name": "enqueue/dsn",
